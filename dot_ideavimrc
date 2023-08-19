@@ -1,0 +1,19 @@
+let mapleader = " "
+
+nmap <leader>w :w!<cr>
+nmap <leader>/ <Action>(CommentByLineComment)
+vmap <leader>/ <Action>(CommentByLineComment)<Esc>
+nmap <leader>la <Action>(ShowIntentionActions)
+nmap <leader>lr <Action>(RenameElement)
+nmap <leader>lR <Action>(FindUsages)
+nmap gr <Action>(FindUsages)
+nmap gI <Action>(ReSharperGotoImplementation)
+
+set which-key
+set ignorecase
+set smartcase
+
+set clipboard+=unnamed
+
+Plug 'tpope/vim-surround'
+Plug 'machakann/vim-highlightedyank'
