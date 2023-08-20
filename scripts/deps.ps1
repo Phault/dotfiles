@@ -47,6 +47,7 @@ $deps = @(
     "Bitwarden.Bitwarden",
     "Obsidian.Obsidian",
     "WinSCP.WinSCP",
+    "Notepad++.Notepad++"
 
     # dev tools
     "Microsoft.PowerShell",
