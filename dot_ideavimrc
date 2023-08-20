@@ -3,17 +3,53 @@ let mapleader = " "
 nmap <leader>w :w!<cr>
 nmap <leader>/ <Action>(CommentByLineComment)
 vmap <leader>/ <Action>(CommentByLineComment)<Esc>
-nmap <leader>la <Action>(ShowIntentionActions)
-nmap <leader>lr <Action>(RenameElement)
-nmap <leader>lR <Action>(FindUsages)
-nmap gr <Action>(FindUsages)
+
+" Go to
+" nmap gr <Action>(FindUsages)
+nmap gr <Action>(ShowUsages)
 nmap gI <Action>(ReSharperGotoImplementation)
 
+" LSP
+nmap <leader>la <Action>(ShowIntentionActions)
+nmap <leader>lr <Action>(RenameElement)
+" nmap <leader>lR <Action>(FindUsages)
+nmap <leader>lR <Action>(ShowUsages)
+nmap <leader>ls <Action>(GotoSymbol)
+
+" Find
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fw <Action>(TextSearchAction)
+nmap <leader>fC <Action>(GotoAction)
+
+" Debug
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(Resume)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>dO <Action>(StepOut)
+nmap <leader>dp <Action>(Pause)
+nmap <leader>dr <Action>(Rerun)
+nmap <leader>dq <Action>(Stop)
+nmap <leader>ds <Action>(RunToCursor)
+
 set which-key
+set notimeout
+
 set ignorecase
 set smartcase
 
+set hlsearch
+set incsearch
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" sync clipboard
 set clipboard+=unnamed
 
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-highlightedyank'
+Plug 'vim-scripts/argtextobj.vim'
