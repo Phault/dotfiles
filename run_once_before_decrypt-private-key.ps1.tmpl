@@ -1,0 +1,7 @@
+$encryptedKeyPath =  "{{ .chezmoi.sourceDir }}\key.txt.age"
+$decryptedKeyPath = "${env:UserProfile}\key.txt"
+
+if (!(Test-Path $decryptedKeyPath)) {
+  Write-Output "Decrypting key..."
+  age --decrypt --output "$decryptedKeyPath" "$encryptedKeyPath"
+} 

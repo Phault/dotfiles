@@ -1,6 +1,11 @@
-{{- if ne .chezmoi.os "windows" }}
+key.txt.age
+
+{{- if eq .chezmoi.os "windows" }}
+*.sh
+{{- else }}
 AppData/
 Documents/
+*.ps1
 {{ end }}
 
 {{- if ne .chezmoi.os "darwin" }}
