@@ -1,11 +1,3 @@
-param (
-    # include personal dependencies
-    [switch]$personal,
-
-    # include work dependencies
-    [switch]$work
-)
-
 # Check to see if we are currently running "as Administrator"
 if (!(Verify-Elevated)) {
     $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
@@ -61,40 +53,40 @@ $deps = @(
     "Canonical.Ubuntu.2204"
 )
 
-if ($personal) {
-    $deps += @(
-        "Discord.Discord",
-        "Parsec.Parsec",
-        "qBittorrent.qBittorrent",
-        "Oracle.VirtualBox",
-        "SyncTrayzor.SyncTrayzor",
+{{ if .personalMachine }}
+# personal
+$deps += @(
+    "Discord.Discord",
+    "Parsec.Parsec",
+    "qBittorrent.qBittorrent",
+    "Oracle.VirtualBox",
+    "SyncTrayzor.SyncTrayzor",
 
-        # dev
-        "Microsoft.VisualStudio.2022.Community",
+    # dev
+    "Microsoft.VisualStudio.2022.Community",
 
-        # gaming
-        "Valve.Steam",
-        "EpicGames.EpicGamesLauncher",
-        "ElectronicArts.EADesktop",
-        "FlawlessWidescreen.FlawlessWidescreen",
+    # gaming
+    "Valve.Steam",
+    "EpicGames.EpicGamesLauncher",
+    "ElectronicArts.EADesktop",
+    "FlawlessWidescreen.FlawlessWidescreen",
 
-        # utilities
-        "REALiX.HWiNFO",
-        "WinDirStat.WinDirStat",
-        "HandBrake.HandBrake"
-    )
-}
-
-if ($work) {
-    $deps += @(
-        "Google.Chrome",
-        "JetBrains.Rider",
-        @(, "Microsoft.VisualStudio.2022.Professional", "--wait --quiet --norestart --nocache --addProductLang En-us --add Microsoft.VisualStudio.Workload.NetWeb"),
-        "Microsoft.SQLServer.2022.Developer",
-        "Microsoft.SQLServerManagementStudio",
-        @(, "JetBrains.dotUltimate", "/SpecificProductNames=Rider;ReSharper;dotTrace;dotCover /Silent=True /VsVersion=17.0")
-    )
-}
+    # utilities
+    "REALiX.HWiNFO",
+    "WinDirStat.WinDirStat",
+    "HandBrake.HandBrake"
+)
+{{ else }}
+# work
+$deps += @(
+    "Google.Chrome",
+    "JetBrains.Rider",
+    @(, "Microsoft.VisualStudio.2022.Professional", "--wait --quiet --norestart --nocache --addProductLang En-us --add Microsoft.VisualStudio.Workload.NetWeb"),
+    "Microsoft.SQLServer.2022.Developer",
+    "Microsoft.SQLServerManagementStudio",
+    @(, "JetBrains.dotUltimate", "/SpecificProductNames=Rider;ReSharper;dotTrace;dotCover /Silent=True /VsVersion=17.0")
+)
+{{ end }}
 
 $failedDeps = @()
 
