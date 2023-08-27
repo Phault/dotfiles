@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Initialization for interactive shells (even login shells, since we source it from .bash_profile)
+
+if [ -f "$HOME/.cargo/env" ]; then
+	. "$HOME/.cargo/env"
+fi
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+export PATH="$HOME/.console-ninja/.bin:$PATH"
+
+eval "$(starship init bash)"

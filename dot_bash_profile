@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Initialization for login shells only, you likely want to edit .bashrc instead.
+
+if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+fi
