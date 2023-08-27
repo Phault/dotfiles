@@ -10,6 +10,6 @@ echo "Installing applications..."
 /opt/homebrew/bin/brew bundle
 
 echo "Setting up chezmoi..."
-/opt/homebrew/bin/chezmoi init phault/dotfiles --apply --prompt
+/opt/homebrew/bin/chezmoi init phault/dotfiles --apply
 
 echo "Setup complete."
