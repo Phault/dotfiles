@@ -11,4 +11,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="$HOME/.console-ninja/.bin:$PATH"
 
+export EDITOR="nvim"
+
 eval "$(starship init bash)"

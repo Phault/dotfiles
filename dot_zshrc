@@ -27,4 +27,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="$HOME/.dotnet/tools:$PATH"
 
+export EDITOR="nvim"
+
 eval "$(starship init zsh)"
