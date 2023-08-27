@@ -1,0 +1,5 @@
+# First and always loaded initialization for zsh shells.
+# 
+# Note this is bad place to edit PATH as macOS overwrites it when loading /etc/zprofile afterwards,
+# so move that to .zprofile or .zshrc instead.
+
