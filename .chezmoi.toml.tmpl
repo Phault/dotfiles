@@ -1,9 +1,11 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $personalMachine := promptBoolOnce . "personalMachine" "Is this a personal machine?" -}}
 
 encryption = "age"
 
 [data]
     email = {{ $email | quote }}
+    personalMachine = {{ $personalMachine }}
 
 [age]
     identity = "~/key.txt"

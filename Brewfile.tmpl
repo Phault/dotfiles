@@ -1,0 +1,69 @@
+tap "homebrew/cask"
+tap "planetscale/tap"
+
+# dependencies
+brew "mas"
+brew "git"
+brew "tree-sitter"
+brew "plantuml"
+brew "age"
+brew "ripgrep"
+cask "font-jetbrains-mono-nerd-font"
+mas "Xcode", id: 497799835
+
+# languages and frameworks
+brew "python"
+brew "openjdk"
+brew "volta"
+cask "dotnet-sdk"
+
+# apps
+brew "bitwarden-cli"
+brew "chezmoi"
+brew "broot"
+brew "curl"
+brew "fish"
+brew "fzf"
+brew "lazygit"
+brew "neovim"
+brew "spaceship"
+brew "tmux"
+cask "figma"
+cask "firefox"
+cask "forklift"
+cask "insomnia"
+cask "obsidian"
+cask "raycast"
+cask "rectangle"
+cask "spotify"
+cask "sublime-merge"
+cask "syncthing"
+cask "the-unarchiver"
+cask "visual-studio-code"
+cask "vivaldi"
+cask "warp"
+cask "docker"
+cask "devutils"
+brew "kubernetes-cli"
+brew "awscli"
+cask "session-manager-plugin"
+brew "terraform"
+brew "mysql-client"
+brew "aws-cdk"
+brew "redis"
+cask "lens"
+mas "Amphetamine", id: 937984704
+mas "Bitwarden", id: 1352778147 # only app-store version supports connecting to browser extension
+
+{{ if .personalMachine }} 
+cask "qbittorrent"
+cask "tailscale"
+cask "soulseek"
+cask "discord"
+cask "plex"
+cask "parsec"
+brew "pscale"
+brew "flyctl"
+{{ else }}
+cask "google-chrome"
+{{ end }}

@@ -10,4 +10,5 @@ Documents/
 
 {{- if ne .chezmoi.os "darwin" }}
 dot_warp/
+Brewfile
 {{ end }}
