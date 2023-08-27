@@ -35,8 +35,10 @@ exact = true
 stripComponents = 1
 
 [".oh-my-zsh"]
-type = "archive"
-url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-exact = true
-stripComponents = 1
+type = "git-repo"
+url = "https://github.com/ohmyzsh/ohmyzsh"
 refreshPeriod = "168h"
+
+[".oh-my-zsh".clone]
+args = ["--depth", "1"]
+
