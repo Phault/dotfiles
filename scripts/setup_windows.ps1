@@ -65,6 +65,8 @@ function Setup-Windows {
 
     # for good measure
     Refresh-Environment
+    . $profile.CurrentUserAllHosts
+    . $profile.CurrentUserCurrentHost
 }
 
 Setup-Windows

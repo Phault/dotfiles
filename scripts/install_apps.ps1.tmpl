@@ -21,7 +21,7 @@ $deps = @(
     @(, "Git.Git", "/VerySilent /NoRestart /Components=""icons,assoc,assoc_sh,gitlfs"""),
 
     # languages and framworks
-    "Python.Python.3",
+    "Python.Python.3.12",
     "Microsoft.DotNet.SDK.7",
     "Volta.Volta",
 
@@ -84,8 +84,8 @@ $deps += @(
     "JetBrains.Rider",
     @(, "Microsoft.VisualStudio.2022.Professional", "--wait --quiet --norestart --nocache --addProductLang En-us --add Microsoft.VisualStudio.Workload.NetWeb"),
     "Microsoft.SQLServer.2022.Developer",
-    "Microsoft.SQLServerManagementStudio",
-    @(, "JetBrains.dotUltimate", "/SpecificProductNames=Rider;ReSharper;dotTrace;dotCover /Silent=True /VsVersion=17.0")
+    @(, "Microsoft.SQLServerManagementStudio", "/ENU"),
+    @(, "JetBrains.dotUltimate", "/SpecificProductNames=Rider;dotTrace;dotCover /Silent=True /VsVersion=17.0")
 )
 {{ end }}
 
