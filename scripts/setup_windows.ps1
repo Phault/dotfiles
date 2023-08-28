@@ -28,7 +28,7 @@ function Refresh-Environment {
 
 function Setup-Windows {
     Write-Host "Installing dependencies..."
-    winget install Git.Git --silent --accept-package-agreements --no-upgrade --overrides "/VerySilent /NoRestart /Components=""icons,assoc,assoc_sh,gitlfs"""
+    winget install Git.Git --silent --accept-package-agreements --no-upgrade --override "/VerySilent /NoRestart /Components=""icons,assoc,assoc_sh,gitlfs"""
     winget install twpayne.chezmoi --silent --accept-package-agreements --no-upgrade
 
     # we need scoop for age encryption unfortunately
