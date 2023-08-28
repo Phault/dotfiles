@@ -14,7 +14,8 @@ if (!(Verify-Elevated)) {
     $newProcess.Arguments = $myInvocation.MyCommand.Definition;
     $newProcess.Verb = "runas";
     [System.Diagnostics.Process]::Start($newProcess);
-
+    Write-Host -NoNewLine 'Press any key to continue...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     exit
 }
 
