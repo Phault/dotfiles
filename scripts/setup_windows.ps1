@@ -17,6 +17,22 @@ function Refresh-Environment {
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
+function Test-CommandAvailable {
+    param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [String] $Command
+    )
+    return [Boolean](Get-Command $Command -ErrorAction SilentlyContinue)
+}
+
+function Install-Scoop {
+    if (Test-CommandAvailable 'scoop') {
+        Write-Host "Scoop is already installed, skipping..."
+    } else {
+        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/scoopinstaller/install/master/install.ps1"))
+    }
+}
+
 function Setup-Windows {
     Write-Host "Installing dependencies..."
     winget install Git.Git --silent --accept-package-agreements --no-upgrade --override "/VerySilent /NoRestart /Components=""icons,assoc,assoc_sh,gitlfs"""
@@ -25,7 +41,7 @@ function Setup-Windows {
     # we need scoop for age encryption unfortunately
     # scoop installer looks for git in path
     Refresh-Environment
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/scoopinstaller/install/master/install.ps1"))
+    Install-Scoop
 
     # no need to refresh enviroment, as the installer adds it to the current session
     scoop bucket add extras
