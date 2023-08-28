@@ -1,14 +1,5 @@
 $ErrorActionPreference = 'Stop'
 
-function Verify-Elevated {
-    # Get the ID and security principal of the current user account
-    $myIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-    $myPrincipal=new-object System.Security.Principal.WindowsPrincipal($myIdentity)
-    # Check to see if we are currently running "as Administrator"
-    return $myPrincipal.IsInRole([System.Security.Principal.WindowsBuiltInRole]::Administrator)
-}
-
-
 # Reload the $env object from the registry
 function Refresh-Environment {
     $locations = 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment',
@@ -58,15 +49,4 @@ function Setup-Windows {
     Refresh-Environment
 }
 
-if (Verify-Elevated) {
-    Setup-Windows
-    
-    # in case we relaunched as elevated, wait for input so user can read output
-    Write-Host -NoNewLine 'Press any key to continue...';
-    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
-} else {
-    $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
-    $newProcess.Arguments = $myInvocation.MyCommand.Definition;
-    $newProcess.Verb = "runas";
-    [System.Diagnostics.Process]::Start($newProcess);
-}
+Setup-Windows
