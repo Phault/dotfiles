@@ -52,7 +52,8 @@ function Setup-Windows {
 
     Write-Host "Setting up chezmoi..."
     chezmoi init phault/dotfiles --apply
-    . $profile
+    . $profile.CurrentUserAllHosts
+    . $profile.CurrentUserCurrentHost
 
     Write-Host "Configuring Windows..."
     . "${env:UserProfile}/scripts/configure_windows.ps1"
