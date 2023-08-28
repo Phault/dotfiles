@@ -33,10 +33,7 @@ winget install twpayne.chezmoi --silent --accept-package-agreements --no-upgrade
 # we need scoop for age encryption unfortunately
 # scoop installer looks for git in path
 Refresh-Environment
-Invoke-Expression (
-  (New-Object System.Net.WebClient)
-    .DownloadString("https://raw.githubusercontent.com/scoopinstaller/install/master/install.ps1")
-)
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/scoopinstaller/install/master/install.ps1"))
 
 # no need to refresh enviroment, as the installer adds it to the current session
 scoop install age
