@@ -98,7 +98,7 @@ foreach ($dep in $deps) {
         $overrides = $dep[1]
 
         Write-Host "Installing $id with overrides: ""$overrides""..."
-        winget install $id --silent --accept-package-agreements --accept-source-agreements --no-upgrade --overrides $overrides
+        winget install $id --silent --accept-package-agreements --accept-source-agreements --no-upgrade --override $overrides
     }
     else {
         Write-Host "Installing $id..."
