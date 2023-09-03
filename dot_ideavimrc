@@ -1,36 +1,151 @@
 let mapleader = " "
 
+let g:WhichKey_SortOrder = "by_key_prefix_first" " inverse of real conf, but closest possible
+
 nmap <leader>w :w!<cr>
+let g:WhichKeyDesc_save = "<Space>w Save" 
+nmap <leader>n <Action>(NewFile)
+let g:WhichKeyDesc_new = "<Space>n New file" 
 nmap <leader>/ <Action>(CommentByLineComment)
 vmap <leader>/ <Action>(CommentByLineComment)<Esc>
+let g:WhichKeyDesc_toggle_comment = "<Space>/ Toggle comment" 
+
+nmap K <Action>(QuickJavaDoc)
+let g:WhichKeyDesc_hover_symbol = "K Hover symbol details" 
+xmap <Tab> <Action>(EditorIndentSelection)
+xmap <S-Tab> <Action>(EditorUnindentSelection)
+
+" Splits
+nmap \ <Action>(SplitHorizontally)
+let g:WhichKeyDesc_split_horizontal = "\ Horizontal split" 
+nmap \| <Action>(SplitVertically)
+let g:WhichKeyDesc_split_vertical = "| Vertical split" 
+nmap <C-Down> <Action>(StretchSplitToBottom)
+let g:WhichKeyDesc_split_resize_down = "<C-Down> Resize split down" 
+nmap <C-Up> <Action>(StretchSplitToTop)
+let g:WhichKeyDesc_split_resize_up = "<C-Up> Resize split up" 
+nmap <C-Left> <Action>(StretchSplitToLeft)
+let g:WhichKeyDesc_split_resize_left = "<C-Left> Resize split left" 
+nmap <C-Right> <Action>(StretchSplitToRight)
+let g:WhichKeyDesc_split_resize_right = "<C-Right> Resize split right" 
+nnoremap <C-h> <C-w>h
+let g:WhichKeyDesc_split_move_left = "<C-H> Move to left split" 
+nnoremap <C-j> <C-w>j
+let g:WhichKeyDesc_split_move_below = "<C-J> Move to below split" 
+nnoremap <C-k> <C-w>k
+let g:WhichKeyDesc_split_move_above = "<C-K> Move to above split" 
+nnoremap <C-l> <C-w>l
+let g:WhichKeyDesc_split_move_right = "<C-L> Move to right split" 
+
+" Buffers
+" alternatives: CloseEditor, CloseActiveTab, PreviousEditorTab (this might
+" be used for unindent etc), PrevSplitter
+nmap <leader>c <Action>(CloseContent)
+let g:WhichKeyDesc_buffer_close = "<Space>c Close buffer" 
+let g:WhichKeyDesc_buffers = "<Space>b Buffers"
+nmap <leader>bc <Action>(CloseAllEditorsButActive)
+let g:WhichKeyDesc_buffers_close_others = "<Space>bc Close all buffers except current" 
+nmap <leader>bC <Action>(CloseAllEditors)
+let g:WhichKeyDesc_buffers_close_all = "<Space>bC Close all buffers" 
+" not sure this is supposed to act on tabs
+nmap <leader>bp <Action>(PreviousTab)
+let g:WhichKeyDesc_buffers_previous = "<Space>bp Previous buffer" 
+
+" Git
+let g:WhichKeyDesc_git = "<Space>g Git"
+nmap <leader>gl <Action>(Annotate)
+let g:WhichKeyDesc_git_toggle_blame = "<Space>gl Toggle line blame" 
+nmap <leader>gd <Action>(Compare.SameVersion)
+let g:WhichKeyDesc_git_diff = "<Space>gd View Git diff" 
+nmap <leader>gC <Action>(Vcs.ShowTabbedFileHistory)
+let g:WhichKeyDesc_git_commits_current = "<Space>gC Git commits (current file)" 
+
+" Previous
+let g:WhichKeyDesc_previous = "[ Previous"
+nmap [b <Action>(PreviousTab)
+let g:WhichKeyDesc_previous_buffer = "[b Previous buffer" 
+" nmap [a <Action>()
+" let g:WhichKeyDesc_previous_argument_start = "[a Previous argument start" 
+" nmap [A <Action>()
+" let g:WhichKeyDesc_previous_argument_end = "[A Previous argument end" 
+nmap [f <Action>(MethodUp)
+let g:WhichKeyDesc_previous_function_start = "[f Previous function start" 
+" nmap [F <Action>()
+" let g:WhichKeyDesc_previous_function_end = "[F Previous function end" 
+" nmap [k <Action>()
+" let g:WhichKeyDesc_previous_block_start = "[k Previous block start" 
+" nmap [K <Action>()
+" let g:WhichKeyDesc_previous_block_end = "[K Previous block end" 
+
+" Next
+let g:WhichKeyDesc_next = "] Next"
+nmap ]b <Action>(NextTab)
+let g:WhichKeyDesc_next_buffer = "]b Next buffer" 
+" nmap ]a <Action>()
+" let g:WhichKeyDesc_next_argument_start = "]a Next argument start" 
+" nmap ]A <Action>()
+" let g:WhichKeyDesc_next_argument_end = "]A Next argument end" 
+nmap ]f <Action>(MethodDown)
+let g:WhichKeyDesc_next_function_start = "]f Next function start" 
+" nmap ]F <Action>()
+" let g:WhichKeyDesc_next_function_end = "]F Next function end" 
+" nmap ]k <Action>()
+" let g:WhichKeyDesc_next_block_start = "]k Next block start" 
+" nmap ]K <Action>()
+" let g:WhichKeyDesc_next_block_end = "]K Next block end" 
 
 " Go to
 " nmap gr <Action>(FindUsages)
 nmap gr <Action>(ShowUsages)
+let g:WhichKeyDesc_symbol_references = "gr References of current symbol"
 nmap gI <Action>(ReSharperGotoImplementation)
+let g:WhichKeyDesc_symbol_impl = "gI Implementation of current symbol"
 
 " LSP
+let g:WhichKeyDesc_lsp = "<Space>l LSP"
 nmap <leader>la <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_lsp_code_action = "<Space>la LSP code action"
 nmap <leader>lr <Action>(RenameElement)
+let g:WhichKeyDesc_lsp_rename = "<Space>lr Rename current symbol"
 " nmap <leader>lR <Action>(FindUsages)
 nmap <leader>lR <Action>(ShowUsages)
+let g:WhichKeyDesc_lsp_search_refs = "<Space>lR Search references"
 nmap <leader>ls <Action>(GotoSymbol)
+let g:WhichKeyDesc_lsp_search_symbols = "<Space>ls Search symbols"
+nmap <leader>lf <Action>(ReformatCode)
+let g:WhichKeyDesc_lsp_format = "<Space>lf Format buffer"
+nmap <leader>ld <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_lsp_hover = "<Space>ld Hover diagnostics"
 
 " Find
+let g:WhichKeyDesc_find = "<Space>f Find"
 nmap <leader>ff <Action>(GotoFile)
+let g:WhichKeyDesc_find_file = "<Space>ff Find files"
 nmap <leader>fw <Action>(TextSearchAction)
+let g:WhichKeyDesc_find_words = "<Space>fw Find words"
 nmap <leader>fC <Action>(GotoAction)
+let g:WhichKeyDesc_find_commands = "<Space>fC Find commands"
 
 " Debug
+let g:WhichKeyDesc_debug = "<Space>d Debug"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_debug_toggle_breakpoint = "<Space>db Toggle breakpoint"
 nmap <leader>dc <Action>(Resume)
+let g:WhichKeyDesc_debug_start = "<Space>dc Start/continue"
 nmap <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_debug_step_into = "<Space>di Step into"
 nmap <leader>do <Action>(StepOver)
+let g:WhichKeyDesc_debug_step_over = "<Space>do Step over"
 nmap <leader>dO <Action>(StepOut)
+let g:WhichKeyDesc_debug_step_out = "<Space>dO Step out"
 nmap <leader>dp <Action>(Pause)
+let g:WhichKeyDesc_debug_pause = "<Space>dp Pause"
 nmap <leader>dr <Action>(Rerun)
-nmap <leader>dq <Action>(Stop)
+let g:WhichKeyDesc_debug_restart = "<Space>dr Restart"
+nmap <leader>dQ <Action>(Stop)
+let g:WhichKeyDesc_debug_terminate = "<Space>dQ Terminate session"
 nmap <leader>ds <Action>(RunToCursor)
+let g:WhichKeyDesc_debug_run_to_cursor = "<Space>ds Run to cursor"
 
 set which-key
 set notimeout
@@ -43,7 +158,7 @@ set incsearch
 
 " No annoying sound on errors
 set noerrorbells
-set novisualbell
+set visualbell
 set t_vb=
 set tm=500
 
