@@ -130,6 +130,8 @@ let g:WhichKeyDesc_find_commands = "<Space>fC Find commands"
 let g:WhichKeyDesc_debug = "<Space>d Debug"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_debug_toggle_breakpoint = "<Space>db Toggle breakpoint"
+nmap <leader>dB <Action>()
+let g:WhichKeyDesc_debug_clear_breakpoints = "<Space>db Clear breakpoints"
 nmap <leader>dc <Action>(Resume)
 let g:WhichKeyDesc_debug_start = "<Space>dc Start/continue"
 nmap <leader>di <Action>(StepInto)
@@ -146,6 +148,20 @@ nmap <leader>dQ <Action>(Stop)
 let g:WhichKeyDesc_debug_terminate = "<Space>dQ Terminate session"
 nmap <leader>ds <Action>(RunToCursor)
 let g:WhichKeyDesc_debug_run_to_cursor = "<Space>ds Run to cursor"
+
+" Tests
+let g:WhichKeyDesc_tests = "<Space>t Tests"
+nmap <leader>ta <Action>(RiderUnitTestRunTreeSplitAction)
+let g:WhichKeyDesc_tests_all_run = "<Space>ta Run all tests"
+nmap <leader>tc <Action>(RiderUnitTestRunContextAction)
+let g:WhichKeyDesc_tests_context_run = "<Space>tc Run test at cursor"
+nmap <leader>tC <Action>(RiderUnitTestDebugContextAction)
+let g:WhichKeyDesc_tests_context_debug = "<Space>tC Debug test at cursor"
+nmap <leader>tq <Action>(RiderUnitTestSessionAbortAction)
+let g:WhichKeyDesc_tests_abort = "<Space>tq Abort test run"
+nmap <leader>tr <Action>(RiderUnitTestRepeatPreviousRunAction)
+let g:WhichKeyDesc_tests_repeat = "<Space>tr Rerun test run"
+" let g:WhichKeyDesc_tests_watch = "<Space>tw Watch all tests"
 
 set which-key
 set notimeout
