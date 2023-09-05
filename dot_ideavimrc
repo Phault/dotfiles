@@ -151,7 +151,7 @@ let g:WhichKeyDesc_debug_run_to_cursor = "<Space>ds Run to cursor"
 
 " Tests
 let g:WhichKeyDesc_tests = "<Space>t Tests"
-nmap <leader>ta <Action>(RiderUnitTestRunTreeSplitAction)
+nmap <leader>ta <Action>(RiderUnitTestRunSolutionAction)
 let g:WhichKeyDesc_tests_all_run = "<Space>ta Run all tests"
 nmap <leader>tc <Action>(RiderUnitTestRunContextAction)
 let g:WhichKeyDesc_tests_context_run = "<Space>tc Run test at cursor"
