@@ -113,6 +113,7 @@ let g:WhichKeyDesc_lsp_search_refs = "<Space>lR Search references"
 nmap <leader>ls <Action>(GotoSymbol)
 let g:WhichKeyDesc_lsp_search_symbols = "<Space>ls Search symbols"
 nmap <leader>lf <Action>(ReformatCode)
+vmap <leader>lf <Action>(ReformatCode)
 let g:WhichKeyDesc_lsp_format = "<Space>lf Format buffer"
 nmap <leader>ld <Action>(ShowErrorDescription)
 let g:WhichKeyDesc_lsp_hover = "<Space>ld Hover diagnostics"
