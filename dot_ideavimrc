@@ -7,7 +7,7 @@ let g:WhichKeyDesc_save = "<Space>w Save"
 nmap <leader>n <Action>(NewFile)
 let g:WhichKeyDesc_new = "<Space>n New file" 
 nmap <leader>/ <Action>(CommentByLineComment)
-vmap <leader>/ <Action>(CommentByLineComment)<Esc>
+vmap <leader>/ <Action>(CommentByLineComment)
 let g:WhichKeyDesc_toggle_comment = "<Space>/ Toggle comment" 
 
 nmap K <Action>(QuickJavaDoc)
