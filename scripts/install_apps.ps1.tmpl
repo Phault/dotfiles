@@ -33,14 +33,19 @@ $deps = @(
     "SomePythonThings.WingetUIStore",
     "junegunn.fzf",
     "Dystroy.broot",
+    "jftuga.less",
+    "Derailed.k9s",
     "BurntSushi.ripgrep.MSVC",
     "Microsoft.WindowsTerminal",
     "voidtools.Everything",
     "Bitwarden.Bitwarden",
+    "Bitwarden.CLI",
     "Obsidian.Obsidian",
     "WinSCP.WinSCP",
     "Notepad++.Notepad++",
     "Starship.Starship",
+    "TheDocumentFoundation.LibreOffice",
+    "MuhammedKalkan.OpenLens",
 
     # dev tools
     "Microsoft.PowerShell",
@@ -117,5 +122,11 @@ if ($failedDeps.Length -gt 0) {
 Write-Host "Installing Zig.Zig..."
 # Zig does not like the silent flag
 winget install Zig.Zig 
+
+# scoop deps
+{{ if .personalMachine }}
+scoop install saml2aws
+{{ else }}
+{{ end }}
 
 Refresh-Environment
