@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local astro_dark = require("astro_dark")
 local keys = require("keys")
+local os_specific = require("os_specific")
 
 local config = {}
 
@@ -64,4 +65,4 @@ config.window_padding = {
 	bottom = "0cell",
 }
 
-return config
+return os_specific(config)
