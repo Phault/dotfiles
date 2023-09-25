@@ -121,9 +121,24 @@ if ($failedDeps.Length -gt 0) {
     Write-Host "Some dependencies could not be installed: `r`n`t$($failedDeps -join "`r`n`t")."
 }
 
-Write-Host "Installing Zig.Zig..."
-# Zig does not like the silent flag
-winget install Zig.Zig 
+function Install-Zig {
+    Write-Host "Installing Zig.Zig..."
+    # Zig does not like the silent flag
+    winget install Zig.Zig 
+
+    # even if the installer manages to get Zig in our path, it's currently bugged and can't find its lib folder
+    # so we jump through some hoops to add it manually...
+    $version = winget show Zig.Zig | Where-Object {$_ -match "Version" } | ForEach-Object { ($_ -split ": ")[1] }
+    $installDir = "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\zig.zig_Microsoft.Winget.Source_8wekyb3d8bbwe\zig-windows-x86_64-$version"
+
+    $currentPath = Get-ItemPropertyValue "HKCU:\Environment" -Name Path
+    if (-not ($installDir -in ($currentPath -split ";"))) {
+        $newPath = -join ($installDir,";",$currentPath)
+        Set-Environment Path $newPath
+    }
+}
+
+Install-Zig
 
 # scoop deps
 {{ if .personalMachine }}
