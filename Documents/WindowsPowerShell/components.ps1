@@ -5,6 +5,8 @@ Push-Location (Join-Path (Split-Path -parent $profile) "components")
 # From within the ./components directory...
 
 . .\broot.ps1
-. .\starship.ps1
+
+# disabled due to poor performance :(
+# . .\starship.ps1 
 
 Pop-Location
