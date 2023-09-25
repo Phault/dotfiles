@@ -46,7 +46,7 @@ c.ui.text_inactive = "#494D56"
 c.ui.text_match = c.ui.accent
 
 c.term.black = c.ui.tabline
-c.term.bright_black = c.ui.tabline
+c.term.bright_black = c.ui.text_inactive -- originally c.ui.tabline, but powershell options became near-invisible
 c.term.red = c.syntax.red
 c.term.bright_red = c.syntax.red
 c.term.green = c.syntax.green
