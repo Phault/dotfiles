@@ -13,9 +13,21 @@ if (!(Verify-Elevated)) {
 ###############################################################################
 Write-Host "Configuring System..." -ForegroundColor "Yellow"
 
+Write-Host "Setting XDG environment variables..."
+Set-Environment XDG_CONFIG_HOME "$env:USERPROFILE\.config"
+Set-Environment XDG_CACHE_HOME "$env:USERPROFILE\.cache"
+Set-Environment XDG_DATA_HOME "$env:USERPROFILE\.local\share"
+Set-Environment XDG_STATE_HOME "$env:USERPROFILE\.local\state"
+
+# ensure the directories exist
+foreach ($dir in ($env:XDG_CONFIG_HOME, $env:XDG_CACHE_HOME, $env:XDG_DATA_HOME, $env:XDG_STATE_HOME)) {
+   New-Item -ItemType Directory -Force -Path $dir | Out-Null
+}
+
 # Enable Developer Mode: Enable: 1, Disable: 0
 #Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
 # Bash on Windows
+Write-Host "Enabling WSL..."
 Enable-WindowsOptionalFeature -Online -All -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 
 ###############################################################################
