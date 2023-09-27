@@ -1,20 +1,8 @@
-{{ $nvim := ".config/nvim" }}
-
-{{ if eq .chezmoi.os "windows" }} 
-{{ $nvim = "AppData/Local/nvim" }}
-{{ end }}
-
-["{{- $nvim }}"]
-type = "git-repo"
-url = "https://github.com/AstroNvim/AstroNvim"
-
-["{{- $nvim }}".clone]
-args = ["--depth", "1"]
-
-["{{- $nvim }}/lua/user"]
-type = "git-repo"
-url = "https://github.com/Phault/astronvim-profile"
-refreshPeriod = "24h"
+[".config/nvim"]
+type = "archive"
+url = "https://github.com/AstroNvim/AstroNvim/archive/refs/heads/main.tar.gz"
+exact = false
+stripComponents = 1
 
 [".local/share/omf"]
 type = "archive"
