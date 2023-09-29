@@ -144,8 +144,9 @@ function Install-Zig {
 Install-Zig
 
 # scoop deps
-{{ if .personalMachine }}
 scoop install fx
+scoop install yazi
+{{ if .personalMachine }}
 {{ else }}
 scoop install saml2aws
 {{ end }}
