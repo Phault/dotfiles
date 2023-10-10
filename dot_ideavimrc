@@ -131,8 +131,8 @@ let g:WhichKeyDesc_find_commands = "<Space>fC Find commands"
 let g:WhichKeyDesc_debug = "<Space>d Debug"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_debug_toggle_breakpoint = "<Space>db Toggle breakpoint"
-nmap <leader>dB <Action>()
-let g:WhichKeyDesc_debug_clear_breakpoints = "<Space>db Clear breakpoints"
+" nmap <leader>dB <Action>()
+" let g:WhichKeyDesc_debug_clear_breakpoints = "<Space>dB Clear breakpoints"
 nmap <leader>dc <Action>(Resume)
 let g:WhichKeyDesc_debug_start = "<Space>dc Start/continue"
 nmap <leader>di <Action>(StepInto)
