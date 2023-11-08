@@ -1,5 +1,7 @@
 key.txt.age
 README.md
+.config/emacs/profiles/**
+.config/emacs/.local/**
 
 {{- if eq .chezmoi.os "windows" }}
 *.sh
