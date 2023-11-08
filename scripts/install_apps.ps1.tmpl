@@ -66,7 +66,9 @@ $deps = @(
     "JesseDuffield.lazygit",
     "mvdan.shfmt",
     "koalaman.shellcheck",
-    "JohnMacFarlane.Pandoc"
+    "JohnMacFarlane.Pandoc",
+    "Helm.Helm",
+    "Hashicorp.Terraform"
 )
 
 {{ if .personalMachine }}
@@ -161,9 +163,13 @@ Refresh-Environment
 
 volta install node@lts
 volta install npm@latest
+
 npm i -g prettier
 npm i -g prettier stylelint
+npm i -g dockerfile-language-server-nodejs
+
 pip install grip
+
 dotnet tool install -g csharpier
 
 go install github.com/jessfraz/dockfmt@latest
