@@ -24,6 +24,8 @@ $deps = @(
     "Python.Python.3.12",
     "Microsoft.DotNet.SDK.7",
     "Volta.Volta",
+    "GoLang.Go",
+    "GolangCI.golangci-lint"
 
     # apps
     "Mozilla.Firefox",
@@ -63,7 +65,8 @@ $deps = @(
     "Canonical.Ubuntu.2204",
     "JesseDuffield.lazygit",
     "mvdan.shfmt",
-    "koalaman.shellcheck"
+    "koalaman.shellcheck",
+    "JohnMacFarlane.Pandoc"
 )
 
 {{ if .personalMachine }}
@@ -153,5 +156,24 @@ scoop install emacs
 {{ else }}
 scoop install saml2aws
 {{ end }}
+
+Refresh-Environment
+
+volta install node@lts
+volta install npm@latest
+npm i -g prettier
+npm i -g prettier stylelint
+pip install grip
+dotnet tool install -g csharpier
+
+go install github.com/jessfraz/dockfmt@latest
+go install github.com/x-motemen/gore/cmd/gore@latest
+go install github.com/stamblerre/gocode@latest
+go install golang.org/x/tools/cmd/godoc@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/gorename@latest
+go install golang.org/x/tools/cmd/guru@latest
+go install github.com/cweill/gotests/gotests@latest
+go install github.com/fatih/gomodifytags@latest
 
 Refresh-Environment
