@@ -6,6 +6,7 @@ encryption = "age"
 [data]
     email = {{ $email | quote }}
     personalMachine = {{ $personalMachine }}
+    wsl = {{ and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
 [age]
     identity = "~/key.txt"
