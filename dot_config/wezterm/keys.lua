@@ -34,6 +34,6 @@ return {
   vim_passthrough({ key = "DownArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Down", 3 }) }),
   vim_passthrough({ key = "UpArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Up", 3 }) }),
   vim_passthrough({ key = "RightArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Right", 3 }) }),
-  vim_passthrough({ key = "u", mods = "CTRL", action = act.ScrollByPage(-1) }),
-  vim_passthrough({ key = "d", mods = "CTRL", action = act.ScrollByPage(1) }),
+  -- vim_passthrough({ key = "u", mods = "CTRL", action = act.ScrollByPage(-1) }),
+  -- vim_passthrough({ key = "d", mods = "CTRL", action = act.ScrollByPage(1) }),
 }
