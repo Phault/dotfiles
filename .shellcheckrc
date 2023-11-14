@@ -1,0 +1,1 @@
+disable=SC1017 # disable literal carriage return error, as it's just Git's autoclrf

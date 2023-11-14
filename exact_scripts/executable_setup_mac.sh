@@ -1,23 +1,25 @@
 #!/usr/bin/env bash
 
 set -e
+cd "$HOME"
 
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-cd "$HOME"
-echo "Installing applications..."
-/opt/homebrew/bin/brew bundle
+/opt/homebrew/bin/brew shellenv bash
+brew install age
+brew install chezmoi
 
 echo "Setting up chezmoi..."
-/opt/homebrew/bin/chezmoi init phault/dotfiles --apply
+chezmoi init phault/dotfiles --apply
+
+echo "Installing applications..."
+brew bundle
 
 echo "Installing fonts..."
-curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip > /tmp/JetBrainsMono.zip && \
-    unzip /tmp/JetBrainsMono.zip -d "$HOME/Library/Fonts" "*.ttf" && \
-    rm /tmp/JetBrainsMono.zip
+curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip >/tmp/JetBrainsMono.zip &&
+	unzip /tmp/JetBrainsMono.zip -d "$HOME/Library/Fonts" "*.ttf" &&
+	rm /tmp/JetBrainsMono.zip
 
-# untested, PATH might not be up-to-date to run this
 echo "Installing Node.js..."
 volta install node@lts
 volta install npm@latest

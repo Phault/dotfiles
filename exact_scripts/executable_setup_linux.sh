@@ -1,20 +1,24 @@
 #!/usr/bin/env bash
 
 set -e
+cd "$HOME"
+
+echo "Installing deps from apt..."
+# hard req on apt :(
+sudo apt update
+sudo apt install -y dotnet-sdk-7.0 build-essential emacs
 
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-cd "$HOME"
-echo "Installing applications..."
-/home/linuxbrew/.linuxbrew/bin/brew bundle
-
-# hard req on apt :(
-echo "Installing dotnet sdk..."
-sudo apt install -y dotnet-sdk-7.0
+/home/linuxbrew/.linuxbrew/bin/brew shellenv bash
+brew install age
+brew install chezmoi
 
 echo "Setting up chezmoi..."
-/home/linuxbrew/.linuxbrew/bin/chezmoi init phault/dotfiles --apply
+chezmoi init phault/dotfiles --apply
+
+echo "Installing applications..."
+brew bundle
 
 echo "Installing fonts..."
 mkdir -p "$HOME/.fonts"
@@ -22,7 +26,6 @@ curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 	unzip /tmp/JetBrainsMono.zip -d "$HOME/.fonts" "*.ttf" &&
 	rm /tmp/JetBrainsMono.zip
 
-# untested, PATH might not be up-to-date to run this
 # TODO: unnecessarily duplicated in setup_emacs.sh
 echo "Installing Node.js..."
 volta install node@lts
