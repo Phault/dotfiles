@@ -5,6 +5,7 @@ Push-Location (Join-Path (Split-Path -parent $profile) "components")
 # From within the ./components directory...
 
 . .\broot.ps1
+. .\yazi.ps1
 
 # disabled due to poor performance :(
 # . .\starship.ps1 
