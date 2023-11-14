@@ -23,7 +23,7 @@ brew bundle
 echo "Installing fonts..."
 mkdir -p "$HOME/.fonts"
 curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip >/tmp/JetBrainsMono.zip &&
-	unzip --overwrite /tmp/JetBrainsMono.zip -d "$HOME/.fonts" "*.ttf" &&
+	unzip -o /tmp/JetBrainsMono.zip -d "$HOME/.fonts" "*.ttf" &&
 	rm /tmp/JetBrainsMono.zip
 
 # TODO: unnecessarily duplicated in setup_emacs.sh
