@@ -10,7 +10,7 @@ sudo apt install -y dotnet-sdk-7.0 build-essential emacs
 
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/home/linuxbrew/.linuxbrew/bin/brew shellenv bash
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 brew install age
 brew install chezmoi
 
@@ -41,7 +41,10 @@ python3 -m ensurepip
 pip3 install grip
 
 echo "Installing global dotnet tools..."
+# will fail if already installed
+set +e
 dotnet tool install -g csharpier
+set -e
 
 echo "Installing global Go modules..."
 go install github.com/jessfraz/dockfmt@latest
