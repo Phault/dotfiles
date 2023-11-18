@@ -73,4 +73,10 @@ function ya {
     rm -f -- "$tmp"
 }
 
+for justfile in "$HOME"/tasks/*.just; do
+	command="$(basename "$justfile" .just)"
+	# shellcheck disable=2139
+	alias "$command"="just --justfile $justfile --working-directory ."
+done
+
 eval "$(starship init zsh)"
