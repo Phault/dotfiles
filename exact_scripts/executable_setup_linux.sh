@@ -20,6 +20,12 @@ chezmoi init phault/dotfiles --apply
 echo "Installing applications..."
 brew bundle
 
+echo "Setting default shell to fish..."
+if ! grep -q -F fish /etc/shells; then
+	which fish | sudo tee -a /etc/shells
+fi
+chsh -s "$(which fish)"
+
 echo "Installing fonts..."
 mkdir -p "$HOME/.fonts"
 curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip >/tmp/JetBrainsMono.zip &&
