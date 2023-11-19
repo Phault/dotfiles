@@ -1,3 +1,5 @@
+set windows-shell := ["powershell.exe", "-c"]
+
 [private]
 default:
   @just -f {{justfile()}} --list
@@ -12,4 +14,5 @@ update:
 update:
   chezmoi update
   winget upgrade
+  scoop update
   scoop update *
