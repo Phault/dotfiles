@@ -1,0 +1,35 @@
+$projectDir = "{{ .projectsDir }}"
+
+function Project-Jump {
+  param(
+    [Parameter(Position = 0, Mandatory=$false)][string]$name
+  )
+  if (!(Test-Path -Path $projectDir)) {
+    Write-Host "Project directory is not set"
+  } elseif (!(Test-Path -Path "$projectDir/$name")) {
+    Write-Host "Project '$name' does not exist"
+  } else {
+    Set-Location -Path "$projectDir/$name"
+  }
+}
+
+$tabCompleteProjectJump = {
+    param(
+        [string]$commandName,
+        [string]$parameterName,
+        [string]$wordToComplete,
+        [string[]]$commandAst
+    )
+  
+    if (Test-Path -Path $projectDir) {
+      Get-ChildItem -Path $projectDir | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+        "$_"
+      }
+    } else {
+      ""
+    }
+}
+
+Register-ArgumentCompleter -CommandName 'Project-Jump' -ParameterName 'name' -ScriptBlock $tabCompleteProjectJump
+
+Set-Alias pj Project-Jump

@@ -9,7 +9,7 @@ plugins=(git pj)
 
 source $ZSH/oh-my-zsh.sh
 
-PROJECT_PATHS=(~/projects)
+PROJECT_PATHS=({{ .projectsDir }})
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
