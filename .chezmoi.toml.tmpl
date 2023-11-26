@@ -1,6 +1,6 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $personalMachine := promptBoolOnce . "personalMachine" "Is this a personal machine?" -}}
-{{- $projectsDir := promptStringOnce . "~/projects" "Where are projects stored?" -}}
+{{- $personalMachine := promptBoolOnce . "personalMachine" "Is this a personal machine" -}}
+{{- $projectsDir := promptStringOnce . "projectsDir" "Where are projects stored" "~/projects" -}}
 
 encryption = "age"
 
