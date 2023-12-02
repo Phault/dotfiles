@@ -13,6 +13,6 @@ update:
 [windows]
 update:
   chezmoi update
-  winget upgrade
+  winget upgrade --all
   scoop update
   scoop update *
