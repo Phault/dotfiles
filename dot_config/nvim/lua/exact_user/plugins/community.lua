@@ -19,4 +19,5 @@ return {
   { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.completion.cmp-cmdline" },
+  { import = "astrocommunity.test.neotest" },
 }
