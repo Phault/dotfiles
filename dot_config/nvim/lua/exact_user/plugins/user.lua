@@ -10,6 +10,11 @@ return {
   --   end,
   -- },
   {
+    -- disabled by default on Windows, but several plugins expect it to be enabled
+    "mfussenegger/nvim-dap",
+    enabled = true,
+  },
+  {
     "NoahTheDuke/vim-just",
     event = { "BufReadPre", "BufNewFile" },
     ft = { "\\cjustfile", "*.just", ".justfile" },
