@@ -23,7 +23,6 @@ $deps = @(
     # languages and framworks
     "Python.Python.3.12",
     "Microsoft.DotNet.SDK.7",
-    "DEVCOM.LuaJIT",
     "Volta.Volta",
     "GoLang.Go",
     "GolangCI.golangci-lint"
@@ -154,6 +153,9 @@ function Install-Zig {
 Install-Zig
 
 # scoop deps
+scoop install mingw
+scoop install lua
+scoop install luarocks
 scoop install fx
 scoop install yazi
 scoop install emacs
