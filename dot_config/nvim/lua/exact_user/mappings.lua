@@ -45,6 +45,7 @@ return {
 		},
 	},
 	x = {
-		["p"] = { '"_dP', desc = "Paste without yank", noremap = true },
+		["p"] = { '"_dp', desc = "Paste forwards without yank", noremap = true },
+		["P"] = { '"_dP', desc = "Paste backwards without yank", noremap = true },
 	},
 }
