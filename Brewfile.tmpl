@@ -2,6 +2,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "planetscale/tap"
 tap "railwaycat/emacsmacport"
+tap "isen-ng/dotnet-sdk-versions"
 
 # dependencies
 brew "mas"
@@ -27,7 +28,8 @@ mas "Xcode", id: 497799835
 brew "python"
 brew "openjdk"
 brew "volta"
-cask "dotnet-sdk"
+cask "dotnet-sdk8-0-100"
+cask "dotnet-sdk7-0-400"
 brew "luarocks"
 brew "go"
 brew "golangci-lint"
@@ -92,4 +94,5 @@ brew "pscale"
 brew "flyctl"
 {{ else }}
 cask "google-chrome"
+cask "dotnet-sdk6-0-400"
 {{ end }}
