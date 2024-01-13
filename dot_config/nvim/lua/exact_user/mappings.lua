@@ -44,8 +44,4 @@ return {
 			desc = "Toggle summary window",
 		},
 	},
-	x = {
-		["p"] = { '"_dp', desc = "Paste forwards without yank", noremap = true },
-		["P"] = { '"_dP', desc = "Paste backwards without yank", noremap = true },
-	},
 }
