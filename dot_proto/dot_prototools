@@ -1,0 +1,12 @@
+deno = "1.40.4"
+dotnet = "8.0.101"
+dprint = "0.45.0"
+dprint-toml = "0.45.0"
+moon = "1.19.3"
+node = "20.11.0"
+npm = "bundled"
+rust = "stable"
+
+[plugins]
+dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/download/v0.2.0/dotnet_plugin.wasm"
+dprint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/dprint/plugin.toml"

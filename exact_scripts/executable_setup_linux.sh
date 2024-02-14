@@ -6,7 +6,7 @@ cd "$HOME"
 echo "Installing deps from apt..."
 # hard req on apt :(
 sudo apt update
-sudo apt install -y dotnet-sdk-7.0 build-essential emacs
+sudo apt install -y build-essential emacs
 
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -33,14 +33,12 @@ curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 	rm /tmp/JetBrainsMono.zip
 
 # TODO: unnecessarily duplicated in setup_emacs.sh
-echo "Installing Node.js..."
-volta install node@lts
-volta install npm@latest
+proto use
 
 echo "Installing global npm packages..."
-npm i -g prettier
-npm i -g stylelint
-npm i -g dockerfile-language-server-nodejs
+proto install-global npm prettier
+proto install-global npm stylelint
+proto install-global npm dockerfile-language-server-nodejs
 
 echo "Installing grip (markdown previewer) via pip..."
 python3 -m ensurepip

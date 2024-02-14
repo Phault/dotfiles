@@ -20,14 +20,12 @@ curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 	unzip -o /tmp/JetBrainsMono.zip -d "$HOME/Library/Fonts" "*.ttf" &&
 	rm /tmp/JetBrainsMono.zip
 
-echo "Installing Node.js..."
-volta install node@lts
-volta install npm@latest
+proto use
 
 echo "Installing global npm packages..."
-npm i -g prettier
-npm i -g stylelint
-npm i -g dockerfile-language-server-nodejs
+proto install-global npm prettier
+proto install-global npm stylelint
+proto install-global npm dockerfile-language-server-nodejs
 
 echo "Installing grip (markdown previewer) via pip..."
 pip install grip

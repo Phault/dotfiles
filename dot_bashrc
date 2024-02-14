@@ -23,13 +23,13 @@ if [ -d "/home/linuxbrew/.linuxbrew" ]; then
 	export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
 fi
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export PROTO_HOME="$HOME/.proto"
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"
+
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH"
 
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.dotnet/tools:$PATH"
-
-export PATH="$HOME/.console-ninja/.bin:$PATH"
 
 export PATH="$HOME/.orbstack/bin:$PATH"
 

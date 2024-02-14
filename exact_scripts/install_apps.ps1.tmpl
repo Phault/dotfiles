@@ -22,8 +22,6 @@ $deps = @(
 
     # languages and framworks
     "Python.Python.3.12",
-    "Microsoft.DotNet.SDK.7",
-    "Volta.Volta",
     "GoLang.Go",
     "GolangCI.golangci-lint"
     "Casey.Just",
@@ -164,14 +162,15 @@ scoop install emacs
 scoop install saml2aws
 {{ end }}
 
+irm https://moonrepo.dev/install/proto.ps1 | iex
+
 Refresh-Environment
 
-volta install node@lts
-volta install npm@latest
+proto use
 
-npm i -g prettier
-npm i -g stylelint
-npm i -g dockerfile-language-server-nodejs
+proto install-global npm prettier
+proto install-global npm stylelint
+proto install-global npm dockerfile-language-server-nodejs
 
 pip install grip
 
