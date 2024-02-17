@@ -33,6 +33,7 @@ curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 	rm /tmp/JetBrainsMono.zip
 
 # TODO: unnecessarily duplicated in setup_emacs.sh
+cd ~/.proto
 proto use
 
 echo "Installing global npm packages..."

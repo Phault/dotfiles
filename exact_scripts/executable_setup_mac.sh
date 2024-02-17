@@ -20,6 +20,7 @@ curl -sSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBr
 	unzip -o /tmp/JetBrainsMono.zip -d "$HOME/Library/Fonts" "*.ttf" &&
 	rm /tmp/JetBrainsMono.zip
 
+cd ~/.proto
 proto use
 
 echo "Installing global npm packages..."
