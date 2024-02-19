@@ -8,5 +8,5 @@ npm = "bundled"
 rust = "stable"
 
 [plugins]
-dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/download/v0.2.0/dotnet_plugin.wasm"
+dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/download/v0.2.1/dotnet_plugin.wasm"
 dprint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/dprint/plugin.toml"
