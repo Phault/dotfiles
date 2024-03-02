@@ -14,5 +14,5 @@ dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/download
 dprint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/dprint/plugin.toml"
 oxlint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/oxlint/plugin.toml"
 
-[tools.node]
+[tools.npm]
 shared-globals-dir = true
