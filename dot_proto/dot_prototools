@@ -10,7 +10,7 @@ rust = "stable"
 yarn = "latest"
 
 [plugins]
-dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/download/v0.2.2/dotnet_plugin.wasm"
+dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/latest/download/dotnet_plugin.wasm"
 dprint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/dprint/plugin.toml"
 oxlint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/oxlint/plugin.toml"
 
