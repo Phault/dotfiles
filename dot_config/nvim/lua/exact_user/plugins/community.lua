@@ -15,6 +15,7 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
