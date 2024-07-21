@@ -1,18 +1,23 @@
 deno = "latest"
 dotnet = "lts"
 dprint = "latest"
-moon = "latest"
-node = "lts"
-npm = "latest"
-pnpm = "latest"
+extism-js = "1.0.0-rc9"
+just = "1.25.2"
+moon = "1.23.1"
+node = "20.12.1"
+npm = "10.5.1"
 oxlint = "latest"
+pact_verifier_cli = "1.1.1"
+pnpm = "latest"
 rust = "stable"
+wasm-test = "21.7.3"
 yarn = "latest"
+
+[tools.npm]
+shared-globals-dir = true
 
 [plugins]
 dotnet = "source:https://github.com/Phault/proto-dotnet-plugin/releases/latest/download/dotnet_plugin.wasm"
 dprint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/dprint/plugin.toml"
+just = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/just/plugin.toml"
 oxlint = "source:https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/oxlint/plugin.toml"
-
-[tools.npm]
-shared-globals-dir = true
